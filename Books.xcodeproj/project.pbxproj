@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6090106D2B067E7700AB30D0 /* BooksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6090106C2B067E7700AB30D0 /* BooksModel.swift */; };
+		6090106F2B06AABD00AB30D0 /* BrowseSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6090106E2B06AABD00AB30D0 /* BrowseSectionsView.swift */; };
 		60F9DDD12B0635E700ADEA5C /* BooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9DDD02B0635E700ADEA5C /* BooksApp.swift */; };
 		60F9DDD32B0635E700ADEA5C /* ReadNowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9DDD22B0635E700ADEA5C /* ReadNowView.swift */; };
 		60F9DDD52B0635E700ADEA5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F9DDD42B0635E700ADEA5C /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		6090106C2B067E7700AB30D0 /* BooksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksModel.swift; sourceTree = "<group>"; };
+		6090106E2B06AABD00AB30D0 /* BrowseSectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseSectionsView.swift; sourceTree = "<group>"; };
 		60F9DDCD2B0635E700ADEA5C /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F9DDD02B0635E700ADEA5C /* BooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksApp.swift; sourceTree = "<group>"; };
 		60F9DDD22B0635E700ADEA5C /* ReadNowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadNowView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				60F9DDE82B06393A00ADEA5C /* BookStoreView.swift */,
 				60F9DDE62B06392B00ADEA5C /* LibraryView.swift */,
 				60F9DDD22B0635E700ADEA5C /* ReadNowView.swift */,
+				6090106E2B06AABD00AB30D0 /* BrowseSectionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				60F9DDEB2B06394800ADEA5C /* AudiobooksView.swift in Sources */,
 				60F9DDE72B06392B00ADEA5C /* LibraryView.swift in Sources */,
 				6090106D2B067E7700AB30D0 /* BooksModel.swift in Sources */,
+				6090106F2B06AABD00AB30D0 /* BrowseSectionsView.swift in Sources */,
 				60F9DDD32B0635E700ADEA5C /* ReadNowView.swift in Sources */,
 				60F9DDED2B06395100ADEA5C /* SearchView.swift in Sources */,
 				60F9DDE92B06393A00ADEA5C /* BookStoreView.swift in Sources */,

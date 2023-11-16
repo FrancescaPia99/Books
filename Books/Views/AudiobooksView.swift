@@ -17,7 +17,7 @@ struct AudiobooksView: View {
             VStack {
                 Divider()
                 
-                NavigationLink(destination: ReadNowView()) {
+                NavigationLink(destination: BrowseSectionsView()) {
                     HStack {
                         Image(systemName: "text.justify.left")
                         Text("Browse Sections")

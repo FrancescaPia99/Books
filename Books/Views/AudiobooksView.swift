@@ -25,15 +25,12 @@ struct AudiobooksView: View {
                         Image(systemName: "chevron.forward")
                     }
                     
-                } 
+                }
                 Divider()
                 
             }
             .padding()
-            
-            
-            
-                .navigationTitle("Audiobooks")
+            .navigationTitle("Audiobooks")
         }
     }
 }

@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct BrowseSectionsView: View {
+    
+    var viewModel = ListModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            Divider()
+            VStack {
+                HStack{
+                    Image(systemName: "flame.fill")
+                    Text("New & Trending")
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                    Divider()
+                }
+                Divider()
+                
+            }
+            .navigationTitle("Browse Sections")
+        }
     }
 }
-
 #Preview {
     BrowseSectionsView()
 }

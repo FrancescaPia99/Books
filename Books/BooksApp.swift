@@ -11,7 +11,29 @@ import SwiftUI
 struct BooksApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ReadNowView()
+                    .tabItem {
+                        Label("Read Now", systemImage: "book.fill")
+                    }
+                LibraryView()
+                    .tabItem {
+                        Label("Library", systemImage: "books.vertical.fill")
+                    }
+                BookStoreView()
+                    .tabItem {
+                        Label("Book Store", systemImage: "bag.fill")
+                    }
+                AudiobooksView()
+                    .tabItem {
+                        Label("Audiobooks", systemImage: "headphones")
+                    }
+                SearchView()
+                    .tabItem {
+                        Label("Search", systemImage: "magnifyingglass")
+                    }
+            }
+            
         }
     }
 }

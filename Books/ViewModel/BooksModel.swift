@@ -9,12 +9,14 @@ import Foundation
 
 class BooksModel {
     
-    var books = [
+    var books1 = [
     Book(cover: "1q84", title: "1Q84", author: "Haruki Murakami"),
     Book(cover: "it", title: "IT", author: "Steven King"),
     Book(cover: "doriangray", title: "The Portrait of Dorian Gray", author: "Oscar Wilde"),
     Book(cover: "lotr", title: "The Lord of the Rings", author: "JRR Tolkien"),
-    Book(cover: "faust", title: "Faust", author: "Johann Wolfgang von Goethe"),
+    Book(cover: "faust", title: "Faust", author: "Johann Wolfgang von Goethe")
+    ]
+    var books2 = [
     Book(cover: "shadventures", title: "The Adventures of Sherlock Holmes", author: "Arthur Conan Doyle"),
     Book(cover: "shreturn", title: "The Return of Sherlock Holmes", author: "Arthur Conan Doyle"),
     Book(cover: "brownsuit", title: "The Man in the Brown Suit", author: "Agatha Christie"),

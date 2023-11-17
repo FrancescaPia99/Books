@@ -1,21 +1,25 @@
 //
-//  AudiobooksView.swift
+//  BookStoreView.swift
 //  Books
 //
-//  Created by Francesca Pia De Rosa on 16/11/23.
+//  Created by Matthew Andrea D'Alessio on 13/11/23.
 //
 
 import SwiftUI
 
 struct AudiobooksView: View {
     
+    @State private var isBookDetailPresented = false
+    @State private var selectedBook: Book?
+    
     var viewModel = BooksModel()
     
     var body: some View {
+        
         NavigationStack {
-            
             VStack {
                 Divider()
+                    .frame(width: 360)
                 
                 NavigationLink(destination: BrowseSectionsView()) {
                     HStack {
@@ -24,17 +28,92 @@ struct AudiobooksView: View {
                         Spacer()
                         Image(systemName: "chevron.forward")
                     }
-                    
                 }
-                Divider()
+                .padding(.horizontal)
+                .padding(.vertical, 5)
                 
+                Divider()
+                    .frame(width: 360)
+            }
+            
+            VStack (alignment: .leading) {
+                Text ("New & Trending")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                
+               /* Text ("Sottotitolo")
+                    .font(.subheadline)
+                    .padding(.bottom) */
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+            
+       // showsIndicators: false = serve a non far venire la balla della scrollview, è una cosa estetica, prova a toglierla e a scrollare e capisci
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHGrid(rows: [GridItem(.flexible())], spacing: 5) {
+                    ForEach(viewModel.books1) { book in
+                        Button(action: {
+                            selectedBook = book
+                            isBookDetailPresented = true
+                        }) {
+                            Image(book.cover)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 100)
+                                .padding(.leading, 15)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                }
+                .frame(maxHeight: 110)
+            }
+            .padding()
+            
+            VStack (alignment: .leading) {
+                Text ("Coming soon")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                
+               Text ("Pre-order your audiobooks and get\nthem on their release day")
+                    .font(.subheadline)
+                    .padding(.bottom)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHGrid(rows: [GridItem(.flexible())], spacing: 5) {
+                    ForEach(viewModel.books2) { book in
+                        Button(action: {
+                            selectedBook = book
+                            isBookDetailPresented = true
+                        }) {
+                            Image(book.cover)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 100)
+                                .padding(.leading, 15)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                }
+                .frame(maxHeight: 110)
             }
             .padding()
             .navigationTitle("Audiobooks")
+
+        }
+        .sheet(isPresented: $isBookDetailPresented) {
+            if let selectedBook = selectedBook {
+                BookDetailsView(book: selectedBook)
+            }
         }
     }
 }
 
-#Preview {
-    AudiobooksView()
+struct AudiobooksView_Previews: PreviewProvider {
+    static var previews: some View {
+        AudiobooksView()
+    }
 }

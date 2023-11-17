@@ -40,11 +40,10 @@ struct BrowseSectionsView: View {
                             
                         }
                     }
-                    
+                    .navigationTitle("Browse Sections")
                     .listStyle(InsetListStyle())
                 }
                 
-            .navigationTitle("Browse Sections")
         }
 }
 #Preview {

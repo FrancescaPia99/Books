@@ -15,6 +15,12 @@ struct GroupDetailView: View {
         NavigationStack {
             Text("Hello")
             
+            
+            
+            
+            
+            
+            
             .navigationTitle(category)
         }
         

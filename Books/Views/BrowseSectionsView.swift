@@ -13,21 +13,39 @@ struct BrowseSectionsView: View {
     
     var body: some View {
         NavigationStack {
-            Divider()
-            VStack {
-                HStack{
-                    Image(systemName: "flame.fill")
-                    Text("New & Trending")
-                    Spacer()
-                    Image(systemName: "chevron.forward")
-                    Divider()
+                    List {
+                        ForEach(viewModel.categories.prefix(2)) { category in
+                            NavigationLink(destination: GroupDetailView(category: category.category)) {
+                                HStack {
+                                    Image(systemName: category.icon)
+                                        .frame(width: 40, height: 20)
+                                    Text(category.category)
+                                }
+                                
+                            }
+                        }
+                        
+                        Text("Genres")
+                            .foregroundColor(.secondary)
+                        
+                        ForEach(viewModel.categories.dropFirst(2)) { category in
+                            NavigationLink(destination: GroupDetailView(category:category.category)) {
+                                HStack{
+                                    Image(systemName: category.icon)
+                                        .frame(width: 40, height: 20)
+                                    Text(category.category)
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                    
+                    .listStyle(InsetListStyle())
                 }
-                Divider()
                 
-            }
             .navigationTitle("Browse Sections")
         }
-    }
 }
 #Preview {
     BrowseSectionsView()

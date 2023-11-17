@@ -9,14 +9,14 @@ import Foundation
 
 class ListModel {
     
-    var list = [
-        ListStruct(icon: "flame.fill", text: "New & Trending"),
-        ListStruct(icon: "bolt.fill", text: "Top Charts"),
-        ListStruct(icon: "theatermasks.fill", text: "Comedy"),
-        ListStruct(icon: "magnifyingglass", text: "Crime"),
-        ListStruct(icon: "crown.fill", text: "Fiction"),
-        ListStruct(icon: "teddybear.fill", text: "Kids & Young Adult"),
-        ListStruct(icon: "newspaper.fill", text: "Non-Fiction"),
-        ListStruct(icon: "camera.macro", text: "Romance")
+    var categories = [
+        Category(icon: "flame.fill", category: "New & Trending"),
+        Category(icon: "bolt.fill", category: "Top Charts"),
+        Category(icon: "theatermasks.fill", category: "Comedy"),
+        Category(icon: "magnifyingglass.circle.fill", category: "Crime"),
+        Category(icon: "crown.fill", category: "Fiction"),
+        Category(icon: "teddybear.fill", category: "Kids & Young Adult"),
+        Category(icon: "newspaper.fill", category: "Non-Fiction"),
+        Category(icon: "camera.macro", category: "Romance")
     ]
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ListStruct: Identifiable {
+struct Category: Identifiable {
     var id = UUID()
     var icon: String
-    var text: String
+    var category: String
 }

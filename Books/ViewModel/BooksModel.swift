@@ -30,7 +30,7 @@ class BooksModel {
     Book(cover: "love", title: "Love", author: "Anonymous"),
     Book(cover: "easteregg", title: "La libertà di amarsi", author: "Matthew Andrea D'Alessio \nFrancesca Pia De Rosa"),
     Book(cover: "easteregg2", title: "La libertà di sperare", author: "Matthew Andrea D'Alessio \nFrancesca Pia De Rosa"),
-    Book(cover: "pony", title: "My Little Country", author: "The Supreme Leader")
+    Book(cover: "pony", title: "My Little Country", author: "The Supreme Leader"),
     Book(cover: "realme", title: "Real Me", author: "Francesca Pia De Rosa")
     ]
     

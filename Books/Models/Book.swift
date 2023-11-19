@@ -12,4 +12,5 @@ struct Book: Identifiable {
     var cover: String
     var title: String
     var author: String
+    var narrator: String
 }

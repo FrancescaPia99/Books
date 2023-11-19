@@ -71,7 +71,7 @@ struct AudiobooksView: View {
                         .font(.title3)
                         .fontWeight(.bold)
                     
-                    Text ("Pre-order your audiobooks and get\nthem on their release day")
+                    Text ("Pre-order your audiobooks and get\nthem on their release day.")
                         .font(.subheadline)
                         .padding(.bottom)
                 }

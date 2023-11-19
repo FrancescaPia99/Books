@@ -13,7 +13,7 @@ struct GroupDetailView: View {
     
     var body: some View {
         NavigationStack {
-            Text("Hello")
+            Text("")
             
             
             

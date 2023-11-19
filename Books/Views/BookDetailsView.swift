@@ -22,9 +22,10 @@ struct BookDetailsView: View {
                     Button(action: {
                         dismiss()
                     }) {
-                        Image(systemName: "x.circle.fill")
-                            .foregroundColor(.secondary)
-                            .font(.title2)
+                        Image(systemName: "xmark")
+                            .symbolVariant(.circle.fill)
+                            .foregroundColor(.gray)
+                            .font(.system(size: 20, design: .rounded))
                             .padding(.top)
                         
                     }
@@ -61,9 +62,14 @@ struct BookDetailsView: View {
                         Image(systemName: "star.leadinghalf.filled")
                         Spacer()
                         HStack {
-                            Image(systemName: "app.gift.fill")
-                            Divider()
-                            Image(systemName: "ellipsis.circle.fill")
+                            Button(action: {
+                                //action
+                            }) { Image(systemName: "app.gift.fill")
+                        }
+                        Button(action: {
+                            //action
+                        }) { Image(systemName: "ellipsis.circle.fill")
+                    }
                         }
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     }
@@ -86,6 +92,7 @@ struct BookDetailsView: View {
                             .background(Color.gray) //light mode: black, dark mode: gray
                             .clipShape(RoundedRectangle(cornerRadius: 30))
                     }
+                    
                 }
             }
             .padding(.bottom)
@@ -97,26 +104,16 @@ struct BookDetailsView: View {
     BookDetailsView(book: Book(cover: "1q84", title: "1Q84", author: "Haruki Murakami", narrator: "Well Or George"))
 }
 
-/*VStack {
-    Button(action: {
-        //action che non esiste
-    }) {
-        Text("GET")
-            .bold()
-            .padding(.horizontal, 150)
-            .padding(.vertical, 15)
-            .foregroundColor(.white)
-            .background(Color.gray) //light mode: black, dark mode: gray
-            .clipShape(RoundedRectangle(cornerRadius: 30))
-    }
+/*
     HStack {
         Button(action: {
             //action che non esiste
         }) {
-            //Image(systemName: "x.circle. fill")
+            //Image(systemName: "x.circle.fill")
             Text("WANT TO READ")
                 .bold()
             padding(.vertical, 15)
+ }
             
             Button(action: {
                 //action che non esiste

@@ -133,6 +133,6 @@ struct BookDetailsView: View {
 - X che rimane statica
 - sistemare i bottoni wtr e preview
 - aggiungere altre cose alla detail scrollview
-- aggiungere "see all"
+- aggiungere "see all" all'audiobooks
     
 */

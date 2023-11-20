@@ -17,20 +17,19 @@ struct BookDetailsView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
                 HStack {
+                    Spacer()
                     Button(action: {
                         dismiss()
                     }) {
-                        Image(systemName: "xmark")
-                            .symbolVariant(.circle.fill)
-                            .foregroundColor(.gray)
-                            .font(.system(size: 20, design: .rounded))
-                            .padding(.top)
-                        
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.secondary)
+                            .font(.system(size: 20))
                     }
-                    .padding(.leading, 340.0)
+                    
                 }
+            
+            VStack {
                 Image(book.cover)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -39,6 +38,7 @@ struct BookDetailsView: View {
                 Text(book.title)
                     .font(.title2)
                     .fontWeight(.bold)
+                
                 HStack {
                     Button(action: {
                         //action
@@ -53,50 +53,73 @@ struct BookDetailsView: View {
                     .foregroundColor(.secondary)
                     .padding(.bottom)
                 
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.fill")
-                        Image(systemName: "star.leadinghalf.filled")
-                        Spacer()
-                        HStack {
-                            Button(action: {
-                                //action
-                            }) { Image(systemName: "app.gift.fill")
-                        }
-                        Button(action: {
-                            //action
-                        }) { Image(systemName: "ellipsis.circle.fill")
-                    }
-                        }
-                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    }
-                    
-                    Text("253 ratings")
-                        .foregroundColor(.secondary)
-                }
-                .padding(.horizontal, 30)
-                .font(.caption)
                 
-                VStack {
-                    Button(action: {
-                        //action che non esiste
-                    }) {
-                        Text("GET")
-                            .bold()
-                            .padding(.horizontal, 150)
-                            .padding(.vertical, 15)
-                            .foregroundColor(.white)
-                            .background(Color.gray) //light mode: black, dark mode: gray
-                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                HStack {
+                    VStack(alignment: .leading) {
+                        HStack (spacing: 3) {
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.leadinghalf.filled")
+                            Spacer()
+                            HStack (spacing: 15) {
+                                Button(action: {
+                                    //action
+                                }) { Image(systemName: "app.gift.fill")
+                                }
+                                Button(action: {
+                                    //action
+                                }) { Image(systemName: "ellipsis.circle.fill")
+                                }
+                            }
+                            .font(.system(size: 27))
+                        }
+                        .font(.system(size: 13))
+                        
+                        Text("253 ratings")
+                            .foregroundColor(.secondary)
+                            .font(.system(size: 10))
                     }
-                    
+                }
+                
+                Button(action: {
+                    //action che non esiste
+                }) {
+                    Text("GET")
+                        .bold()
+                        .padding(.horizontal, 150)
+                        .padding(.vertical, 15)
+                        .foregroundColor(.white)
+                        .background(colorScheme == .dark ? Color.white.opacity(0.5): Color.black)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                }
+                
+                HStack {
+                    Button(action: {
+                        //azione che non esiste
+                    }) {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                            Text("WANT TO READ")
+                                .padding(.vertical, 15)
+                            
+                            
+                        }
+                      //  Spacer()
+                        HStack {
+                            Image(systemName: "headphones")
+                            Text("PREVIEW")
+                                .padding(.vertical, 15)
+                            
+                            
+                        }
+                    }
+              //      .padding(.horizontal, 20)
                 }
             }
-            .padding(.bottom)
-        }
+                    }
+            .padding()
     }
 }
 
@@ -105,25 +128,11 @@ struct BookDetailsView: View {
 }
 
 /*
-    HStack {
-        Button(action: {
-            //action che non esiste
-        }) {
-            //Image(systemName: "x.circle.fill")
-            Text("WANT TO READ")
-                .bold()
-            padding(.vertical, 15)
- }
-            
-            Button(action: {
-                //action che non esiste
-            }) {
-                //Image(systemName: "headphones")
-                Text("PREVIEW")
-                    .bold()
-                padding(.vertical, 15)
-            }
-        }
-    }
+- sistemare class -> struct
+- meno cecati
+- X che rimane statica
+- sistemare i bottoni wtr e preview
+- aggiungere altre cose alla detail scrollview
+- aggiungere "see all"
     
-}*/
+*/

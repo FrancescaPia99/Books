@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BooksModel {
+class BooksModel {
     
     var books1 = [
     Book(cover: "1q84", title: "1Q84", author: "Haruki Murakami", narrator: "Well Or George"),

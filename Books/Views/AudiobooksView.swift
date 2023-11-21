@@ -63,7 +63,27 @@ struct AudiobooksView: View {
                     }
                     .frame(maxHeight: 160)
                 }
-                .padding()
+                
+                VStack {
+                    Divider()
+                    
+                    Button(action: {
+                        //azione che non esiste
+                    }) {
+                        HStack {
+                            Text("See All")
+                                .font(.system(size: 15))
+                            Image(systemName: "chevron.forward")
+                                .foregroundColor(.secondary)
+                                .font(.system(size: 10))
+                        } 
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 5)
+                        .padding(.bottom, 20)
+                    }
+                }
+                .frame(width: 360)
+                .padding(.top, 10)
                 
                 VStack (alignment: .leading) {
                     Text ("Coming soon")
@@ -73,6 +93,7 @@ struct AudiobooksView: View {
                     Text ("Pre-order your audiobooks and get\nthem on their release day.")
                         .font(.subheadline)
                         .padding(.bottom)
+                        .foregroundColor(.gray)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
@@ -96,7 +117,29 @@ struct AudiobooksView: View {
                     }
                     .frame(maxHeight: 160)
                 }
-                .padding()
+                
+                VStack {
+                    Divider()
+                    
+                    Button(action: {
+                        //azione che non esiste
+                    }) {
+                        HStack {
+                            Text("See All")
+                                .font(.system(size: 15))
+                            Image(systemName: "chevron.forward")
+                                .foregroundColor(.secondary)
+                                .font(.system(size: 10))
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 5)
+                        .padding(.bottom, 20)
+                    }
+                }
+                .frame(width: 360)
+                .padding(.top, 10)
+                //  .padding()
+                
                 
                 VStack (alignment: .leading) {
                     Text ("Popular Audiobooks")
@@ -124,17 +167,35 @@ struct AudiobooksView: View {
                     }
                     .frame(maxHeight: 160)
                 }
-                
-                .padding()
+                VStack {
+                    Divider()
+                    
+                    Button(action: {
+                        //azione che non esiste
+                    }) {
+                        HStack {
+                            Text("See All")
+                                .font(.system(size: 15))
+                            Image(systemName: "chevron.forward")
+                                .foregroundColor(.secondary)
+                                .font(.system(size: 10))
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 5)
+                        .padding(.bottom, 20)
+                    }
+                }
+                .frame(width: 360)
+                .padding(.top, 10)
                 .navigationTitle("Audiobooks")
                 
             }
         }
         .sheet(item: $selectedBook) { selectedBook in
-                BookDetailsView(book: selectedBook)
-            }
+            BookDetailsView(book: selectedBook)
         }
     }
+}
 
 struct AudiobooksView_Previews: PreviewProvider {
     static var previews: some View {

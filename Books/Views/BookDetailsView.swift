@@ -16,7 +16,7 @@ struct BookDetailsView: View {
     var book: Book
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             HStack {
                 Spacer()
                 Button(action: {
@@ -98,23 +98,19 @@ struct BookDetailsView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                 }
                 .padding(.bottom, 10)
+                
                 HStack {
                     Button(action: {
                         //azione che non esiste
                     }) {
                         HStack {
                             Image(systemName: "plus.circle.fill")
-                            //  .padding(.leading, 15) OPPURE
-                            // aggiungere .frame(minWidth: ..., maxWidth: ...)
                             Text("WANT TO READ")
-                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .fontWeight(.bold)
                                 .padding(.vertical, 13)
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
-                            
                         }
-                        .border(colorScheme == .dark ? Color.secondary: Color.black) //perché non va????
-                        .cornerRadius(.infinity)
-                        .overlay(RoundedRectangle(cornerRadius: 25) .stroke(lineWidth: 2))
+                        .frame(minWidth: 190)
+                        .overlay(RoundedRectangle(cornerRadius: 25) .stroke((colorScheme == .dark ? Color.white.opacity(0.5): Color.black)))
                     }
                     
                     Button(action: {
@@ -123,18 +119,30 @@ struct BookDetailsView: View {
                         HStack {
                             Image(systemName: "headphones")
                             Text("PREVIEW")
-                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .fontWeight(.bold)
                                 .padding(.vertical, 13)
                                 .clipShape(RoundedRectangle(cornerRadius: 30))
                         }
-                        .border(colorScheme == .dark ? Color.white.opacity(0.5): Color.black)
-                        //non va nemmeno qua!!
-                        .cornerRadius(.infinity)
-                        .overlay(RoundedRectangle(cornerRadius: 25) .stroke(lineWidth: 2))
+                        .frame(minWidth: 150)
+                        .overlay(RoundedRectangle(cornerRadius: 25) .stroke((colorScheme == .dark ? Color.white.opacity(0.5): Color.black)))
                     }
                 }
                 
+                
+                Divider()
+                    .padding(15)
                 //   .padding(.horizontal, 15)
+                
+                Text("Publisher description")
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 5)
+                Text("Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit animid est laborum.")
+                    .font(.system(size: 16))
+                
+                Divider()
+                    .padding(5)
             }
         }
         .padding()
@@ -148,7 +156,6 @@ struct BookDetailsView: View {
 /*
  - cambiare font
  - meno cecati (in progress)
- - X che rimane statica
  - sistemare i bottoni wtr e preview
  - aggiungere altre cose alla detail scrollview
  - aggiungere "see all" all'audiobooks

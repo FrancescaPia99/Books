@@ -9,8 +9,10 @@ import SwiftUI
 
 struct GroupDetailView: View {
     
-    var category: String
     @State private var selectedBook: Book?
+    
+    var viewModel = BooksModel()
+    var category: String
     
     var body: some View {
         NavigationStack {

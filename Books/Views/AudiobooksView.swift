@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AudiobooksView: View {
     
-    @State private var isBookDetailPresented = false
     @State private var selectedBook: Book?
     
     var viewModel = BooksModel()
@@ -48,21 +47,21 @@ struct AudiobooksView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: [GridItem(.flexible())], spacing: 5) {
-                        ForEach(viewModel.books1) { book in
+                        ForEach(BooksModel.books1) { book in
                             Button(action: {
                                 selectedBook = book
-                                isBookDetailPresented = true
                             }) {
                                 Image(book.cover)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(height: 100)
+                                    .frame(height: 150)
+                                    .cornerRadius(3.0)
                                     .padding(.leading, 15)
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    .frame(maxHeight: 110)
+                    .frame(maxHeight: 160)
                 }
                 .padding()
                 
@@ -80,21 +79,22 @@ struct AudiobooksView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: [GridItem(.flexible())], spacing: 5) {
-                        ForEach(viewModel.books3) { book in
+                        ForEach(BooksModel.books3) { book in
                             Button(action: {
                                 selectedBook = book
-                                isBookDetailPresented = true
                             }) {
                                 Image(book.cover)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(height: 100)
+                                    .frame(height: 150)
+                                    .cornerRadius(3.0)
                                     .padding(.leading, 15)
+                                
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    .frame(maxHeight: 110)
+                    .frame(maxHeight: 160)
                 }
                 .padding()
                 
@@ -108,21 +108,21 @@ struct AudiobooksView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: [GridItem(.flexible())], spacing: 5) {
-                        ForEach(viewModel.books2) { book in
+                        ForEach(BooksModel.books2) { book in
                             Button(action: {
                                 selectedBook = book
-                                isBookDetailPresented = true
                             }) {
                                 Image(book.cover)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(height: 100)
+                                    .frame(height: 150)
+                                    .cornerRadius(3.0)
                                     .padding(.leading, 15)
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    .frame(maxHeight: 110)
+                    .frame(maxHeight: 160)
                 }
                 
                 .padding()
@@ -130,13 +130,11 @@ struct AudiobooksView: View {
                 
             }
         }
-        .sheet(isPresented: $isBookDetailPresented) {
-            if let selectedBook = selectedBook {
+        .sheet(item: $selectedBook) { selectedBook in
                 BookDetailsView(book: selectedBook)
             }
         }
     }
-}
 
 struct AudiobooksView_Previews: PreviewProvider {
     static var previews: some View {

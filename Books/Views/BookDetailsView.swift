@@ -17,23 +17,24 @@ struct BookDetailsView: View {
     
     var body: some View {
         ScrollView {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.secondary)
-                            .font(.system(size: 20))
-                    }
-                    
+            HStack {
+                Spacer()
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.secondary)
+                        .font(.system(size: 20))
                 }
+                
+            }
             
             VStack {
                 Image(book.cover)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 250, alignment: .center)
+                    .cornerRadius(3.0)
                     .padding(.vertical, 20)
                 Text(book.title)
                     .font(.title2)
@@ -44,14 +45,16 @@ struct BookDetailsView: View {
                         //action
                     }) {
                         Text(book.author)
+                            .font(.system(size: 15))
                         Image(systemName: "chevron.forward")
                             .foregroundColor(.secondary)
-                            .font(.footnote)
+                            .font(.system(size: 10))
                     }
                 }
                 Text("Narrated by \(book.narrator)")
                     .foregroundColor(.secondary)
                     .padding(.bottom)
+                    .font(.system(size: 15))
                 
                 
                 HStack {
@@ -88,38 +91,53 @@ struct BookDetailsView: View {
                 }) {
                     Text("GET")
                         .bold()
-                        .padding(.horizontal, 150)
-                        .padding(.vertical, 15)
+                        .frame(width: 350)
+                        .padding(.vertical, 13)
                         .foregroundColor(.white)
                         .background(colorScheme == .dark ? Color.white.opacity(0.5): Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                 }
-                
+                .padding(.bottom, 10)
                 HStack {
                     Button(action: {
                         //azione che non esiste
                     }) {
                         HStack {
                             Image(systemName: "plus.circle.fill")
+                            //  .padding(.leading, 15) OPPURE
+                            // aggiungere .frame(minWidth: ..., maxWidth: ...)
                             Text("WANT TO READ")
-                                .padding(.vertical, 15)
-                            
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .padding(.vertical, 13)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
                             
                         }
-                      //  Spacer()
+                        .border(colorScheme == .dark ? Color.secondary: Color.black) //perché non va????
+                        .cornerRadius(.infinity)
+                        .overlay(RoundedRectangle(cornerRadius: 25) .stroke(lineWidth: 2))
+                    }
+                    
+                    Button(action: {
+                        //azione che non esiste
+                    }){
                         HStack {
                             Image(systemName: "headphones")
                             Text("PREVIEW")
-                                .padding(.vertical, 15)
-                            
-                            
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .padding(.vertical, 13)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
                         }
+                        .border(colorScheme == .dark ? Color.white.opacity(0.5): Color.black)
+                        //non va nemmeno qua!!
+                        .cornerRadius(.infinity)
+                        .overlay(RoundedRectangle(cornerRadius: 25) .stroke(lineWidth: 2))
                     }
-              //      .padding(.horizontal, 20)
                 }
+                
+                //   .padding(.horizontal, 15)
             }
-                    }
-            .padding()
+        }
+        .padding()
     }
 }
 
@@ -128,11 +146,12 @@ struct BookDetailsView: View {
 }
 
 /*
-- sistemare class -> struct
-- meno cecati
-- X che rimane statica
-- sistemare i bottoni wtr e preview
-- aggiungere altre cose alla detail scrollview
-- aggiungere "see all" all'audiobooks
-    
-*/
+ - cambiare font
+ - meno cecati (in progress)
+ - X che rimane statica
+ - sistemare i bottoni wtr e preview
+ - aggiungere altre cose alla detail scrollview
+ - aggiungere "see all" all'audiobooks
+ - voiceover
+ 
+ */

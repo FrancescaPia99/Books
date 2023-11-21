@@ -117,13 +117,11 @@ struct GroupDetailView: View {
                 }
                 .frame(width: 360)
                 .padding(.top, 10)
-                
-                
-                
-                
-                
                 .navigationTitle(category)
             }
+        }
+        .sheet(item: $selectedBook) { selectedBook in
+            BookDetailsView(book: selectedBook)
         }
     }
 }

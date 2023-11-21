@@ -16,26 +16,25 @@ struct BookDetailsView: View {
     var book: Book
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            HStack {
-                Spacer()
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.secondary)
-                        .font(.system(size: 20))
-                }
-                
+        HStack {
+            Spacer()
+            Button(action: {
+                dismiss()
+            }) {
+                Image(systemName: "xmark.circle.fill")
+                    .foregroundColor(.secondary)
+                    .font(.system(size: 20))
             }
-            
+        }
+        .padding(/*@START_MENU_TOKEN@*/[.top, .trailing]/*@END_MENU_TOKEN@*/)
+        
+        ScrollView(showsIndicators: false) {
             VStack {
                 Image(book.cover)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 250, alignment: .center)
                     .cornerRadius(3.0)
-                    .padding(.vertical, 20)
                 Text(book.title)
                     .font(.title2)
                     .fontWeight(.bold)
@@ -97,7 +96,7 @@ struct BookDetailsView: View {
                         .background(colorScheme == .dark ? Color.white.opacity(0.5): Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                 }
-                .padding(.bottom, 10)
+                .padding(.vertical, 10)
                 
                 HStack {
                     Button(action: {
@@ -130,7 +129,7 @@ struct BookDetailsView: View {
                 
                 
                 Divider()
-                    .padding(15)
+                    .padding(20)
                 //   .padding(.horizontal, 15)
                 
                 Text("Publisher description")
@@ -150,7 +149,7 @@ struct BookDetailsView: View {
 }
 
 #Preview {
-    BookDetailsView(book: Book(cover: "1q84", title: "1Q84", author: "Haruki Murakami", narrator: "Well Or George"))
+    BookDetailsView(book: Book(cover: "cover 1q84", title: "1Q84", author: "Haruki Murakami", narrator: "Well Or George"))
 }
 
 /*

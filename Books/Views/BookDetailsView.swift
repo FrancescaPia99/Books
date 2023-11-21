@@ -92,7 +92,7 @@ struct BookDetailsView: View {
                     Text("GET")
                         .bold()
                         .frame(width: 350)
-                        .padding(.vertical, 13)
+                        .padding(.vertical, 12)
                         .foregroundColor(.white)
                         .background(colorScheme == .dark ? Color.white.opacity(0.5): Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
@@ -107,7 +107,7 @@ struct BookDetailsView: View {
                             Image(systemName: "plus.circle.fill")
                             Text("WANT TO READ")
                                 .fontWeight(.bold)
-                                .padding(.vertical, 13)
+                                .padding(.vertical, 12)
                         }
                         .frame(minWidth: 190)
                         .overlay(RoundedRectangle(cornerRadius: 25) .stroke((colorScheme == .dark ? Color.white.opacity(0.5): Color.black)))
@@ -120,13 +120,13 @@ struct BookDetailsView: View {
                             Image(systemName: "headphones")
                             Text("PREVIEW")
                                 .fontWeight(.bold)
-                                .padding(.vertical, 13)
+                                .padding(.vertical, 12)
                                 .clipShape(RoundedRectangle(cornerRadius: 30))
                         }
                         .frame(minWidth: 150)
                         .overlay(RoundedRectangle(cornerRadius: 25) .stroke((colorScheme == .dark ? Color.white.opacity(0.5): Color.black)))
                     }
-                }
+                } .font(.system(size: 14))
                 
                 
                 Divider()

@@ -16,6 +16,7 @@ struct GroupDetailView: View {
         NavigationStack {
             Divider()
                 .frame(width: 360)
+                .padding(.bottom, 35)
             
             ScrollView {
                 VStack (alignment: .leading) {
@@ -65,6 +66,7 @@ struct GroupDetailView: View {
                 }
                 .frame(width: 360)
                 .padding(.top, 10)
+                .padding(.bottom, 35)
                 
                 VStack (alignment: .leading) {
                     Text ("Bestsellers")

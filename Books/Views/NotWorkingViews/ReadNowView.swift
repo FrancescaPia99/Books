@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ReadNowView: View {
     var body: some View {
-            Text("Read Now!")
+        NavigationStack {
+            Text("")
+                .navigationTitle("Read Now")
+        }
     }
 }
 

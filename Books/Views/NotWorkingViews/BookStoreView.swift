@@ -9,7 +9,10 @@ import SwiftUI
 
 struct BookStoreView: View {
     var body: some View {
-        Text("Book Store")
+        NavigationStack {
+            Text("")
+                .navigationTitle("Book Store")
+        }
     }
 }
 

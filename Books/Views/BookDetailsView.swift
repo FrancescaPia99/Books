@@ -36,6 +36,7 @@ struct BookDetailsView: View {
                     .frame(width: 250, alignment: .center)
                     .cornerRadius(3.0)
                     .accessibilityLabel("Cover of \(book.title)")
+                    .accessibilityRemoveTraits(.isImage)
                 Text(book.title)
                     .font(.title2)
                     .fontWeight(.bold)

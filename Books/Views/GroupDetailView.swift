@@ -28,6 +28,7 @@ struct GroupDetailView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
+                .accessibilityLabel("New releases. Heading")
                 
                 
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -42,6 +43,7 @@ struct GroupDetailView: View {
                                     .frame(height: 150)
                                     .cornerRadius(3.0)
                                     .padding(.leading, 15)
+                                    .accessibilityLabel("Cover of \(book.title)")
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -57,6 +59,7 @@ struct GroupDetailView: View {
                         HStack {
                             Text("See All")
                                 .font(.system(size: 15))
+                                .accessibilityHint("Double tap to open all audiobooks.")
                             Image(systemName: "chevron.forward")
                                 .foregroundColor(.secondary)
                                 .font(.system(size: 10))
@@ -77,6 +80,7 @@ struct GroupDetailView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
+                .accessibilityLabel("Bestsellers. Heading")
                 
                 
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -91,6 +95,7 @@ struct GroupDetailView: View {
                                     .frame(height: 150)
                                     .cornerRadius(3.0)
                                     .padding(.leading, 15)
+                                    .accessibilityLabel("Cover of \(book.title)")
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -106,6 +111,7 @@ struct GroupDetailView: View {
                         HStack {
                             Text("See All")
                                 .font(.system(size: 15))
+                                .accessibilityHint("Double tap to open all audiobooks.")
                             Image(systemName: "chevron.forward")
                                 .foregroundColor(.secondary)
                                 .font(.system(size: 10))

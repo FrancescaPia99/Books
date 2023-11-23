@@ -12,7 +12,6 @@ struct BrowseSectionsView: View {
     var viewModel = ListModel()
     
     var body: some View {
-        NavigationStack {
                     List {
                         ForEach(viewModel.categories.prefix(2)) { category in
                             NavigationLink(destination: GroupDetailView(category: category.category)) {
@@ -41,10 +40,8 @@ struct BrowseSectionsView: View {
                         }
                     }
                     .navigationTitle("Browse Sections")
-                    .listStyle(InsetListStyle())
+             //       .listStyle(InsetListStyle())
                 }
-                
-        }
 }
 #Preview {
     BrowseSectionsView()

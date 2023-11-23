@@ -58,13 +58,19 @@ struct BookDetailsView: View {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        HStack (spacing: 3) {
-                            Image(systemName: "star.fill")
-                            Image(systemName: "star.fill")
-                            Image(systemName: "star.fill")
-                            Image(systemName: "star.fill")
-                            Image(systemName: "star.leadinghalf.filled")
+                        HStack {
+                            HStack (spacing: 3) {
+                                Image(systemName: "star.fill")
+                                Image(systemName: "star.fill")
+                                Image(systemName: "star.fill")
+                                Image(systemName: "star.fill")
+                                Image(systemName: "star.leadinghalf.filled")
+                            }
+                         //   .accessibilityElement(children: .combine)
+                        //    .accessibilityLabel("Four and a half stars")
+                            
                             Spacer()
+                            
                             HStack (spacing: 15) {
                                 Button(action: {
                                     //action
@@ -82,7 +88,11 @@ struct BookDetailsView: View {
                         Text("253 ratings")
                             .foregroundColor(.secondary)
                             .font(.system(size: 10))
+                            .accessibilityLabel("253 ratings")
                     }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("Four and a half stars")
+                    
                 }
                 
                 Button(action: {
@@ -139,6 +149,7 @@ struct BookDetailsView: View {
                     .padding(.bottom, 5)
                 Text("Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit animid est laborum.")
                     .font(.system(size: 16))
+                    .lineLimit(5)
                 
                 Divider()
                     .padding(5)
@@ -149,15 +160,5 @@ struct BookDetailsView: View {
 }
 
 #Preview {
-    BookDetailsView(book: Book(cover: "cover 1q84", title: "1Q84", author: "Haruki Murakami", narrator: "Well Or George"))
+    BookDetailsView(book: Book(cover: "1q84", title: "1Q84", author: "Haruki Murakami", narrator: "Well Or George"))
 }
-
-/*
- - cambiare font
- - meno cecati (in progress)
- - sistemare i bottoni wtr e preview
- - aggiungere altre cose alla detail scrollview
- - aggiungere "see all" all'audiobooks
- - voiceover
- 
- */

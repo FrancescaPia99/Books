@@ -25,9 +25,12 @@ struct AudiobooksView: View {
                         HStack {
                             Image(systemName: "text.justify.left")
                             Text("Browse Sections")
+                                .accessibilityLabel("Browse Sections")
+                                .accessibilityHint ("Double tap to open")
                             Spacer()
                             Image(systemName: "chevron.forward")
                         }
+                        
                     }
                     .padding(.horizontal)
                     .padding(.vertical, 5)
@@ -40,6 +43,7 @@ struct AudiobooksView: View {
                     Text ("New & Trending")
                         .font(.title3)
                         .fontWeight(.bold)
+                        .accessibilityLabel("New & Trending. Heading")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
@@ -57,6 +61,7 @@ struct AudiobooksView: View {
                                     .frame(height: 150)
                                     .cornerRadius(3.0)
                                     .padding(.leading, 15)
+                                    .accessibilityLabel("Cover of \(book.title)")
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -73,10 +78,12 @@ struct AudiobooksView: View {
                         HStack {
                             Text("See All")
                                 .font(.system(size: 15))
+                                .accessibilityLabel("See All")
+                                .accessibilityHint("Double tap to open all books.")
                             Image(systemName: "chevron.forward")
                                 .foregroundColor(.secondary)
                                 .font(.system(size: 10))
-                        } 
+                        }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.top, 5)
                         .padding(.bottom, 20)
@@ -89,12 +96,13 @@ struct AudiobooksView: View {
                     Text ("Coming soon")
                         .font(.title3)
                         .fontWeight(.bold)
-                    
-                    Text ("Pre-order your audiobooks and get\nthem on their release day.")
+                    Text ("Pre-order your audiobooks and get them on their release day.")
                         .font(.subheadline)
                         .padding(.bottom)
                         .foregroundColor(.gray)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel("Coming soon. Pre-order your audiobooks and get them on their release day.")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
                 
@@ -110,7 +118,7 @@ struct AudiobooksView: View {
                                     .frame(height: 150)
                                     .cornerRadius(3.0)
                                     .padding(.leading, 15)
-                                
+                                    .accessibilityLabel("Cover of \(book.title)")
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -127,6 +135,8 @@ struct AudiobooksView: View {
                         HStack {
                             Text("See All")
                                 .font(.system(size: 15))
+                                .accessibilityLabel("See All")
+                                .accessibilityHint("Double tap to open all books.")
                             Image(systemName: "chevron.forward")
                                 .foregroundColor(.secondary)
                                 .font(.system(size: 10))
@@ -138,13 +148,13 @@ struct AudiobooksView: View {
                 }
                 .frame(width: 360)
                 .padding(.top, 10)
-                //  .padding()
                 
                 
                 VStack (alignment: .leading) {
                     Text ("Popular Audiobooks")
                         .font(.title3)
                         .fontWeight(.bold)
+                        .accessibilityLabel("Popular Audiobooks. Heading")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
@@ -161,39 +171,43 @@ struct AudiobooksView: View {
                                     .frame(height: 150)
                                     .cornerRadius(3.0)
                                     .padding(.leading, 15)
+                                    .accessibilityLabel("Cover of \(book.title)")
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    .frame(maxHeight: 160)
                 }
-                VStack {
-                    Divider()
-                    
-                    Button(action: {
-                        //azione che non esiste
-                    }) {
-                        HStack {
-                            Text("See All")
-                                .font(.system(size: 15))
-                            Image(systemName: "chevron.forward")
-                                .foregroundColor(.secondary)
-                                .font(.system(size: 10))
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 5)
-                        .padding(.bottom, 20)
-                    }
-                }
-                .frame(width: 360)
-                .padding(.top, 10)
-                .navigationTitle("Audiobooks")
-                
+                .frame(maxHeight: 160)
             }
+            VStack {
+                Divider()
+                
+                Button(action: {
+                    //azione che non esiste
+                }) {
+                    HStack {
+                        Text("See All")
+                            .font(.system(size: 15))
+                            .accessibilityLabel("See All")
+                            .accessibilityHint("Double tap to see all books.")
+                        Image(systemName: "chevron.forward")
+                            .foregroundColor(.secondary)
+                            .font(.system(size: 10))
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 5)
+                    .padding(.bottom, 20)
+                }
+            }
+            .frame(width: 360)
+            .padding(.top, 10)
+            .navigationTitle("Audiobooks")
+            
         }
         .sheet(item: $selectedBook) { selectedBook in
             BookDetailsView(book: selectedBook)
         }
+        
     }
 }
 

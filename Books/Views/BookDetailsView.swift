@@ -35,20 +35,23 @@ struct BookDetailsView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 250, alignment: .center)
                     .cornerRadius(3.0)
+                    .accessibilityLabel("Cover of \(book.title)")
                 Text(book.title)
                     .font(.title2)
                     .fontWeight(.bold)
-                
+                    .accessibilityLabel("\(book.title). Heading")
+            
                 HStack {
                     Button(action: {
                         //action
                     }) {
                         Text(book.author)
                             .font(.system(size: 15))
+                            .accessibilityLabel("\(book.author)")
                         Image(systemName: "chevron.forward")
                             .foregroundColor(.secondary)
                             .font(.system(size: 10))
-                    }
+                    } .accessibilityHint("Double tap to see all the author's works")
                 }
                 Text("Narrated by \(book.narrator)")
                     .foregroundColor(.secondary)
@@ -57,17 +60,23 @@ struct BookDetailsView: View {
                 
                 
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack {
                         HStack {
-                            HStack (spacing: 3) {
-                                Image(systemName: "star.fill")
-                                Image(systemName: "star.fill")
-                                Image(systemName: "star.fill")
-                                Image(systemName: "star.fill")
-                                Image(systemName: "star.leadinghalf.filled")
+                            VStack (alignment: .leading) {
+                                HStack (spacing: 3) {
+                                    Image(systemName: "star.fill")
+                                    Image(systemName: "star.fill")
+                                    Image(systemName: "star.fill")
+                                    Image(systemName: "star.fill")
+                                    Image(systemName: "star.leadinghalf.filled")
+                                }
+                                Text("253 ratings")
+                                    .foregroundColor(.secondary)
+                                    .font(.system(size: 10))
+                                    .accessibilityLabel("253 ratings")
                             }
-                         //   .accessibilityElement(children: .combine)
-                        //    .accessibilityLabel("Four and a half stars")
+                         .accessibilityElement(children: .combine)
+                        .accessibilityLabel("Four and a half stars. Based on 253 ratings.")
                             
                             Spacer()
                             
@@ -76,22 +85,16 @@ struct BookDetailsView: View {
                                     //action
                                 }) { Image(systemName: "app.gift.fill")
                                 }
+                                .accessibilityHint("Double tap to gift the audiobook to someone else.")
                                 Button(action: {
                                     //action
                                 }) { Image(systemName: "ellipsis.circle.fill")
-                                }
+                                } .accessibilityHint("Double tap to explore other actions.")
                             }
                             .font(.system(size: 27))
                         }
                         .font(.system(size: 13))
-                        
-                        Text("253 ratings")
-                            .foregroundColor(.secondary)
-                            .font(.system(size: 10))
-                            .accessibilityLabel("253 ratings")
                     }
-                    .accessibilityElement(children: .combine)
-                    .accessibilityLabel("Four and a half stars")
                     
                 }
                 
@@ -105,6 +108,7 @@ struct BookDetailsView: View {
                         .foregroundColor(.white)
                         .background(colorScheme == .dark ? Color.white.opacity(0.5): Color.black)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .accessibilityHint("Double tap to download the audiobooks")
                 }
                 .padding(.vertical, 10)
                 
@@ -117,6 +121,7 @@ struct BookDetailsView: View {
                             Text("WANT TO READ")
                                 .fontWeight(.bold)
                                 .padding(.vertical, 12)
+                                .accessibilityHint("Double tap to add to Want to read list")
                         }
                         .frame(minWidth: 190)
                         .overlay(RoundedRectangle(cornerRadius: 25) .stroke((colorScheme == .dark ? Color.white.opacity(0.5): Color.black)))
@@ -131,6 +136,7 @@ struct BookDetailsView: View {
                                 .fontWeight(.bold)
                                 .padding(.vertical, 12)
                                 .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .accessibilityHint("Double tap to listen a preview of the audiobook")
                         }
                         .frame(minWidth: 150)
                         .overlay(RoundedRectangle(cornerRadius: 25) .stroke((colorScheme == .dark ? Color.white.opacity(0.5): Color.black)))
@@ -147,6 +153,7 @@ struct BookDetailsView: View {
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 5)
+                    .accessibilityLabel("Publisher description. Heading")
                 Text("Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit animid est laborum.")
                     .font(.system(size: 16))
                     .lineLimit(5)

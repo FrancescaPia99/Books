@@ -79,7 +79,7 @@ struct AudiobooksView: View {
                             Text("See All")
                                 .font(.system(size: 15))
                                 .accessibilityLabel("See All")
-                                .accessibilityHint("Double tap to open all books.")
+                                .accessibilityHint("Double tap to open all audiobooks.")
                             Image(systemName: "chevron.forward")
                                 .foregroundColor(.secondary)
                                 .font(.system(size: 10))
@@ -136,7 +136,7 @@ struct AudiobooksView: View {
                             Text("See All")
                                 .font(.system(size: 15))
                                 .accessibilityLabel("See All")
-                                .accessibilityHint("Double tap to open all books.")
+                                .accessibilityHint("Double tap to open all audiobooks.")
                             Image(systemName: "chevron.forward")
                                 .foregroundColor(.secondary)
                                 .font(.system(size: 10))
@@ -200,9 +200,8 @@ struct AudiobooksView: View {
                 }
             }
             .frame(width: 360)
-            .padding(.top, 10)
             .navigationTitle("Audiobooks")
-            
+            .padding(.top, 10)
         }
         .sheet(item: $selectedBook) { selectedBook in
             BookDetailsView(book: selectedBook)

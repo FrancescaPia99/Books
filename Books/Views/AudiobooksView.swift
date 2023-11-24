@@ -178,35 +178,35 @@ struct AudiobooksView: View {
                     }
                 }
                 .frame(maxHeight: 160)
-            }
-            VStack {
-                Divider()
                 
-                Button(action: {
-                    //azione che non esiste
-                }) {
-                    HStack {
-                        Text("See All")
-                            .font(.system(size: 15))
-                            .accessibilityLabel("See All")
-                            .accessibilityHint("Double tap to see all books.")
-                        Image(systemName: "chevron.forward")
-                            .foregroundColor(.secondary)
-                            .font(.system(size: 10))
+                VStack {
+                    Divider()
+                    
+                    Button(action: {
+                        //azione che non esiste
+                    }) {
+                        HStack {
+                            Text("See All")
+                                .font(.system(size: 15))
+                                .accessibilityLabel("See All")
+                                .accessibilityHint("Double tap to see all books.")
+                            Image(systemName: "chevron.forward")
+                                .foregroundColor(.secondary)
+                                .font(.system(size: 10))
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 5)
+                        .padding(.bottom, 20)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.top, 5)
-                    .padding(.bottom, 20)
                 }
+                .frame(width: 360)
+                .navigationTitle("Audiobooks")
+                .padding(.top, 10)
             }
-            .frame(width: 360)
-            .navigationTitle("Audiobooks")
-            .padding(.top, 10)
+            .sheet(item: $selectedBook) { selectedBook in
+                BookDetailsView(book: selectedBook)
+            }
         }
-        .sheet(item: $selectedBook) { selectedBook in
-            BookDetailsView(book: selectedBook)
-        }
-        
     }
 }
 
